@@ -1,0 +1,62 @@
+
+## SECMARKER 0.4
+
+Secmarker is a search tool for selenocysteine tRNA (tRNA-Sec) identification.
+The presence of tRNA-Sec in a genome indicates the use of selenocysteine by the organism.
+
+* Web server
+  A SecMarker web server is available for online analysis:
+  http://secmarker.crg.es/
+
+* Publication
+ Didac Santesmasses, Marco Mariotti and Roderic Guigó. Computational identification of the selenocysteine tRNA (tRNASec) in genomes. PLoS Comput Biol. 2017 Feb 13;13(2):e1005383. doi: 10.1371/journal.pcbi.1005383. 
+
+* Dependencies
+  cmsearch and esl-sfetch from the Infernal package (http://infernal.janelia.org/), specifically, version => 1.1 is required.
+  RNAplot from ViennaRNA package (http://www.tbi.univie.ac.at/RNA/), version >= 2.0 is known to work fine.
+
+* Installation:
+  In order to use Secmarker run the following comands (where x.x corresponds to the current version):
+
+  tar xfz secmarker-x.x.tar.gz
+  cd secmarker-x.x
+  ./setup.py
+  ./run_test.py
+
+
+* Running Secmarker.py
+usage: Secmarker.py [-h] -t TARGET [-o O] [-plot] [-T T] [-F F] [-cpu CPU]
+                    [-cca] [-AT12] [-O O]
+
+search for selenocysteine tRNA (tRNA-Sec), marker of Sec trait
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -t TARGET, --target TARGET
+                        target nucleotide sequence
+  -o O                  output folder
+  -plot                 generate the tRNA plot(s). For each tRNA prediction,
+                        two files (.png and .ps) will be generated in the
+                        folder images/
+  -T T, --infernal_score T
+                        score threshold used by cmsearch (Infernal score)
+  -F F, --filtering_score F
+                        score threshold used to filter tRNAs. If the tRNA has
+                        the UCA anticodon or a G73, -T is used for filtering
+  -cpu CPU              number of available CPUs [default 1]
+  -cca                  include the 3 residues downstream the discriminator
+                        base if available (to check if the CCA sequence is
+                        encoded in the sequence)
+  -AT12                 force a 12 bp AT-stem, that is a 7/5 fold tRNA
+  -O O, --options O     additional options for cmsearch
+
+
+
+
+* Contact us:
+  dsantesmassesruiz@bwh.harvard.edu
+
+
+Roderic Guigó lab
+Centre for Genomic Regulation (CRG), Barcelona
+2015-2020
